@@ -21,7 +21,11 @@ Route::group([
 ], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
-  
+    
+    // 測試簡訊  
+    Route::get('hello3', '\App\Http\Controllers\Cool\TestController@smsTest3');
+    // 測試簡訊結束
+    
     Route::group([
       'middleware' => 'auth:api'
     ], function() {

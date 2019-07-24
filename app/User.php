@@ -11,7 +11,7 @@ use Storage;
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
-    const UPDATED_AT = 'update_at';
+    // const UPDATED_AT = 'update_at';
     /**
      * The attributes that are mass assignable.
      *
