@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/hello/{yo}', '\App\Http\Controllers\Cool\TestController@smsTest');
