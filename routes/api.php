@@ -22,9 +22,10 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
     
-    // 測試簡訊  
-    Route::get('hello3', '\App\Http\Controllers\Cool\TestController@smsTest3');
-    // 測試簡訊結束
+    // 簡訊驗證碼傳送
+    Route::post('sms', 'AuthController@sendValidateMail');
+    // 驗證碼確認
+    Route::put('codecheck/{user_id}', 'AuthController@confirmValidateCode');
     
     Route::group([
       'middleware' => 'auth:api'
