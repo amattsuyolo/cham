@@ -14,7 +14,8 @@
         "laravel/passport": "^7.3",
         "laravel/tinker": "^1.0",
         "laravolt/avatar": "^2.2",
-        "nexmo/client": "^1.8"
+        "nexmo/laravel": "^1.1"
+
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

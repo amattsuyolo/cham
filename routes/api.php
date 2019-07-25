@@ -21,7 +21,12 @@ Route::group([
 ], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
-  
+    
+    // 簡訊驗證碼傳送
+    Route::post('sms', 'AuthController@sendValidateMail');
+    // 驗證碼確認
+    Route::put('codecheck/{user_id}', 'AuthController@confirmValidateCode');
+    
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
