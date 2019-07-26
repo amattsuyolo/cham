@@ -12,8 +12,14 @@ use App\Repositories\UserRepository;
 
 class AuthController extends Controller
 {
-    /**
-     * Create user
+  
+    public function __construct(SmsService $smsService,UserRepository $userRepository)
+    {
+        $this->smsService = $smsService;
+        $this->userRepository = $userRepository;
+    }
+     /**
+     * Create user 創造新使用者
      *
      * @param  [string] name
      * @param  [string] email
@@ -21,11 +27,6 @@ class AuthController extends Controller
      * @param  [string] password_confirmation
      * @return [string] message
      */
-    public function __construct(SmsService $smsService,UserRepository $userRepository)
-    {
-        $this->smsService = $smsService;
-        $this->userRepository = $userRepository;
-    }
     public function signup(Request $request)
     {   
         // 新增現階段需要的值 以整合網站的
@@ -34,12 +35,12 @@ class AuthController extends Controller
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed'
         ]);
-        $user = new User([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
-        $user->save();
+
+        $name=$request->name;
+        $email=$request->email;
+        $password=$request->password;
+        // 新增會員資料
+        $this->userRepository->addUser($name,$email,$password);
         // 返回user id 供驗證碼使用
         return response()->json([
             'message' => 'Successfully created user!'
@@ -115,44 +116,23 @@ class AuthController extends Controller
      *
      * @return [json] user object
      */
-    // 激活開始
-    public function activation(Request $request) {
-        // 需要接簡訊四碼
-        // 比對與資料庫相同
-        // 更改activate欄位為 1
-		$name = $request->route('name');
-		$act=DB::select("SELECT `activate`,`facebook_login` FROM `users` WHERE datediff(CURDATE(),`update_at`)<=1 AND name='$name' AND `activate`=0");
-		$realIP = $request->getClientIp();
-			DB::insert('insert into attack_records (ip, account, type, route) values (?, ?, ?, ?)', [$realIP, $name, '1', 'https://idiyiqilu.com/activation/' . $name . '']);
-		if($act){
-			print_r ($act);
-			DB::update('update users set activate = 1 where name = ?', array($name));
-			if (Auth::attempt(['name' => $name, 'password' => $act[0]["facebook_login"]])) {
-	            // 認證通過...
-				DB::update('update users set facebook_login = ? where name = ?', array('',$name));
-	            return redirect()->intended('index');
-        	}
-		}
-		Auth::logout();
-		return redirect('index');
-	}
-    // 激活結束
-
     public function user(Request $request)
     {
         return response()->json($request->user());
     }
-    // 寄驗證信
+    /*
+        寄驗證信 
+        若成功寄出 更新user表驗證碼欄位
+     *  @param  json $user_id , $phone_number
+     *
+     *  @return [json]
+     *  
+    */ 
     public function sendValidateMail(Request $request){
-        // 預計要傳電話號碼，user_id
-        // 資料庫更新認證碼
-        // 需要一個     認證的controller
         $request->validate([
             'phone_number' => 'required',
             'user_id' => 'required'
         ]);
-        //  3000001
-        // '886906910889'
         // 使用者id
         $user_id=$request->user_id;
         // 手機號碼
@@ -162,43 +142,46 @@ class AuthController extends Controller
         shuffle($garbled_array);
         // 亂碼產生
         $verify_code=$garbled_array[0].$garbled_array[1].$garbled_array[2].$garbled_array[3];        
-        // 簡訊內容 目前中文會變成 ?
+        // 簡訊內容 目前中文會變成 "問號"
         $content="VerifyCode:"."\r\n".$verify_code;
         // 寄出簡訊並抓取回傳值
         $result=$this->smsService->sendSms($phone,$content);
         if($result==0){
             // 若成功，更新資料庫user verify欄位
-            User::where('id', $user_id)
-            ->update(['verify' =>$verify_code]);
-
+            $this->userRepository
+                ->verificationCodeUpdate($user_id,$verify_code);
             return response()->json(
                 [
                 "message" => "Successfully send demo sms"
                 ], 200
             );
-        }
+        }else{
         // 錯誤重寄....
+        }
     }
-    // 確認驗證碼
+    /*
+        確認驗證碼      
+     *  @param  $user_id
+     *  @param  [int] code_number
+     *
+     *  @return [json]
+     *  
+    */ 
     public function confirmValidateCode($user_id,Request $request){
-        // $request->validate([
-        //     'code_number' => 'required',
-        //     'user_id' => 'required'
-        // ]);
+
         $request->validate([
             'code_number' => 'required',
         ]);
         $code_number=$request->code_number; 
-        // $user_id=$request->user_id;
+
         // 搜尋驗證碼與id是否有相符合的資料
-        $check = User::where('id', $user_id)
-                ->where('verify',$code_number)
-                ->count();
+        $check=$this->userRepository
+                    ->codeNumCheck($user_id,$code_number);
         if($check){
             // 更新User 的 activate 狀態
-            // User::where('id', $user_id)
-            // ->update(['activate' =>1]);
-            $this->userRepository->updateSingleContent($user_id,"activate",1);
+            // $this->userRepository->updateSingleContent($user_id,"activate",1);
+            $this->userRepository
+                 ->verifyUser($user_id);
             return response()->json(
                 [
                 "message" => "Successfully Verified"
