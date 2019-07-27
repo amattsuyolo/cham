@@ -128,7 +128,7 @@ class AuthController extends Controller
      *  @return [json]
      *  
     */ 
-    public function sendValidateMail(Request $request){
+    public function sendValidateSms(Request $request){
         $request->validate([
             'phone_number' => 'required',
             'user_id' => 'required'
