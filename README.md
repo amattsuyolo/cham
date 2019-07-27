@@ -1,2 +1,4 @@
 # cham
-laravel 實作 MVC 
+利用laravel 實作 中大型網站的MVC架構 API 
+
+第一階段專注於 會員登入流程 並用其示範 依賴注入的使用與大型網站的MVC架構  
