@@ -3,9 +3,8 @@
 namespace App\Services;
 use Illuminate\Http\Request;
 use Nexmo\Laravel\Facade\Nexmo;
-use App\Services\Interfaces\sendValidateCodeInterface;
 
-class  SmsService implements sendValidateCodeInterface
+class SmsService 
 {
     //希望重複利用 註冊驗證或是金流寄信驗證之類也許還有密碼找回
     public function sendSms($phone,$content){
