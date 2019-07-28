@@ -13,6 +13,7 @@ class UserRepository
     public function __construct(User $user)
     {
         $this->user=$user;
+        // $this->userResource=$userResource;
     }
     /*
         錯誤範例: 
@@ -80,7 +81,8 @@ class UserRepository
      *  @return void
     */ 
     public function userInfo($request){
-        return new UserResource($request);
+        // return  $this->userResource($request);
+        return  new userResource($request);
     }
 
 
