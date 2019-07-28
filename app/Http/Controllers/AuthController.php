@@ -118,7 +118,8 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
-        return response()->json($request->user());
+        return  $this->userRepository->userInfo($request->user());
+        // return response()->json($request->user());
     }
     /*
         寄驗證信 

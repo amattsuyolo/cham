@@ -4,8 +4,8 @@ namespace App\Services\Interfaces;
 
 interface sendValidateCodeInterface
 {
-
-    public function sendSms($phone,$content);
+    // 寄驗證信
+    public function sendSms($address,$content);
 }
 
 

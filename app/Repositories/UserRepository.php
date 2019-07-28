@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
+use App\Http\Resources\User as UserResource;
 
 class UserRepository
 {
@@ -70,6 +71,16 @@ class UserRepository
             'email' => $email,
             'password' => bcrypt($password)
         ]);
+    }
+      /*
+        回傳會員資訊     
+     *  @param name
+     *  @param email
+     *  @param password
+     *  @return void
+    */ 
+    public function userInfo($request){
+        return new UserResource($request);
     }
 
 
