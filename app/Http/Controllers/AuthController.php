@@ -40,10 +40,14 @@ class AuthController extends Controller
         $email=$request->email;
         $password=$request->password;
         // 新增會員資料
-        $this->userRepository->addUser($name,$email,$password);
+        $result=$this->userRepository->addUser($name,$email,$password);
         // 返回user id 供驗證碼使用
         return response()->json([
-            'message' => 'Successfully created user!'
+            "status"=>"",
+            'message' => 'Successfully created user!',
+            "data"=>[
+                "user_id"=> $result
+            ]
         ], 201);
     }
   
@@ -90,12 +94,16 @@ class AuthController extends Controller
         $avatar = Avatar::create($user->name)->getImageObject()->encode('png');
         Storage::put('avatars/'.$user->id.'/avatar.png', (string) $avatar);
         return response()->json([
-            'access_token' => $tokenResult->accessToken,
-            'token_type' => 'Bearer',
-            'expires_at' => Carbon::parse(
-                $tokenResult->token->expires_at
-            )->toDateTimeString()
-        ]);
+            "status"=>"200",
+            "message"=>"login success",
+            "data"=>[
+                        'access_token' => $tokenResult->accessToken,
+                        'token_type' => 'Bearer',
+                        'expires_at' => Carbon::parse(
+                            $tokenResult->token->expires_at
+                        )->toDateTimeString()
+                     ]
+            ]);
     }
   
     /**
@@ -107,6 +115,7 @@ class AuthController extends Controller
     {
         $request->user()->token()->revoke();
         return response()->json([
+            "status"=>"",
             'message' => 'Successfully logged out'
         ]);
     }
@@ -119,12 +128,14 @@ class AuthController extends Controller
     public function user(Request $request)
     {
         // return  $this->userRepository->userInfo($request->user());
-        return  response()->json([
-                // 自定義較精確狀態碼
-                "status"=>200,
-                "message"=>"OK",
-                "data"=>$request->user(),
-            ],200);// Status code here
+        $content=$this->userRepository->userInfo($request->user());
+        return response()->json(
+            [
+            "status"=>200,
+            "message" => "",
+            "data"=>$content
+            ], 200
+        );
         // return response()->json($request->user());
     }
     /*
@@ -157,13 +168,19 @@ class AuthController extends Controller
             // 若成功，更新資料庫user verify欄位
             $this->userRepository
                 ->verificationCodeUpdate($user_id,$verify_code);
+                return response()->json(
+                    [
+                    "status"=>200,
+                    "message" => "Successfully send demo sms"
+                    ], 200
+                );
+        }else{
             return response()->json(
                 [
-                "message" => "Successfully send demo sms"
-                ], 200
+                "status"=>400,
+                "message" => "Can't Send SMS"
+                ]
             );
-        }else{
-        // 錯誤重寄....
         }
     }
     /*
@@ -189,15 +206,20 @@ class AuthController extends Controller
             // $this->userRepository->updateSingleContent($user_id,"activate",1);
             $this->userRepository
                  ->verifyUser($user_id);
-            return response()->json(
-                [
-                "message" => "Successfully Verified"
-                ], 200
-            );
+                 return response()->json(
+                    [
+                    "status"=>200,
+                    "message" => "Successfully Verified"
+                    ], 200
+                );
         }else{
-            ##############
-            ###未完成
-            #############
+                return response()->json(
+                    [
+                    "status"=>203,
+                    "message" => "Wrong Code"
+                    ]
+                );
+            }
         }
         /*
         刪除用戶(現實中不容易有此功能)     
@@ -208,4 +230,4 @@ class AuthController extends Controller
     */ 
     }
 
-}
+

@@ -64,7 +64,7 @@ class UserRepository
      *  @param name
      *  @param email
      *  @param password
-     *  @return void
+     *  @return user_id
     */ 
     public function addUser($name,$email,$password){
         User::create([
@@ -72,6 +72,8 @@ class UserRepository
             'email' => $email,
             'password' => bcrypt($password)
         ]);
+        $result=User::select('id')->where('name',$name)->get();
+        return $result[0]["id"];
     }
       /*
         回傳會員資訊     
