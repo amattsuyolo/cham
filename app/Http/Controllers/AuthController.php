@@ -118,7 +118,13 @@ class AuthController extends Controller
      */
     public function user(Request $request)
     {
-        return  $this->userRepository->userInfo($request->user());
+        // return  $this->userRepository->userInfo($request->user());
+        return  response()->json([
+                // 自定義較精確狀態碼
+                "status"=>200,
+                "message"=>"OK",
+                "data"=>$request->user(),
+            ],200);// Status code here
         // return response()->json($request->user());
     }
     /*
@@ -193,6 +199,13 @@ class AuthController extends Controller
             ###未完成
             #############
         }
+        /*
+        刪除用戶(現實中不容易有此功能)     
+     *  @param  $user_id
+     *
+     *  @return void
+     *  
+    */ 
     }
 
 }

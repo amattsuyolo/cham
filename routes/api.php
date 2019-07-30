@@ -16,18 +16,24 @@ use Illuminate\Http\Request;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+// 回傳特定類別影片資訊
+Route::get('video/{tagid}/{page?}', 'VideoController@ClassificationVideos');
+
 Route::post('apitry', 'api\PostController@index');
+
 Route::group([
     'prefix' => 'auth'
 ], function () {
+    // 登入
     Route::post('login', 'AuthController@login');
+    // 註冊
     Route::post('signup', 'AuthController@signup');
-    
     // 簡訊驗證碼傳送
     Route::post('sms', 'AuthController@sendValidateSms');
     // 驗證碼確認
     Route::put('codecheck/{user_id}', 'AuthController@confirmValidateCode');
-    
+     // 需要使用token的相關功能
     Route::group([
       'middleware' => 'auth:api'
     ], function() {
