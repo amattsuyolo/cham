@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use App\Repositories\UserRepository;
 use App\Services\SmsService;
+use App\Services\MailService;
 use App\User;
 // use App\Entity\User;
 use Avatar;
@@ -12,9 +13,10 @@ use Storage;
 
 class AuthController extends Controller {
 
-	public function __construct(SmsService $smsService, UserRepository $userRepository) {
+	public function __construct(SmsService $smsService, UserRepository $userRepository,MailService $mailService) {
 		$this->smsService = $smsService;
 		$this->userRepository = $userRepository;
+		$this->mailService=$mailService;
 	}
 	/**
 	 * Create user 創造新使用者
@@ -137,12 +139,12 @@ class AuthController extends Controller {
 		// return response()->json($request->user());
 	}
 	/*
-		        寄驗證信
-		        若成功寄出 更新user表驗證碼欄位
-		     *  @param  json $user_id , $phone_number
-		     *
-		     *  @return [json]
-		     *
+	*  寄驗證信SMS
+	*  若成功寄出 更新user表驗證碼欄位
+	*  @param  json $user_id , $phone_number
+	*
+	*  @return [json]
+	*
 	*/
 	public function sendValidateSms(Request $request) {
 		$request->validate([
@@ -183,6 +185,56 @@ class AuthController extends Controller {
 				]
 			);
 		}
+	}
+	/*
+	*  寄驗證EMAIL
+	*  若成功寄出 更新user表驗證碼欄位
+	*  @param  json $user_id , 
+	*  @param  [str] $email
+	*  @return [json]
+	*
+	*/
+	public function sendValidateEmail(Request $request){
+
+		$request->validate([
+			'email' => 'required',
+			'user_id' => 'required',
+		]);
+		// 使用者id
+		$user_id = $request->user_id;
+		// email
+		$email = $request->email;
+		// 亂碼表(亂碼格式若不同有其幫助)
+		$garbled_array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+		shuffle($garbled_array);
+		// 亂碼產生
+		$verify_code = $garbled_array[0] . $garbled_array[1] . $garbled_array[2] . $garbled_array[3];
+		
+		$result = $this->mailService->sendValidateCode($email, $verify_code);
+		
+		if ($result == 0) {
+			// 若成功，更新資料庫user verify欄位
+			$this->userRepository
+				->verificationCodeUpdate($user_id, $verify_code);
+			// 若成功。更新資料庫mobilePhone 欄位
+			$this->userRepository
+				->emailUpdate($user_id, $email);
+			return response()->json(
+				[
+					"status" => 200,
+					"message" => "Successfully send email",
+				], 200
+			);
+		} else {
+			return response()->json(
+				[
+					"status" => 400,
+					"message" => "Can't Send email",
+				]
+			);
+		}
+
+		
 	}
 	/*
 		        確認驗證碼

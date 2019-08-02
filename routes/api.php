@@ -31,6 +31,8 @@ Route::group([
     Route::post('signup', 'AuthController@signup');
     // 簡訊驗證碼傳送
     Route::post('sms', 'AuthController@sendValidateSms');
+    // email驗證碼傳送
+    Route::post('email', 'AuthController@sendValidateEmail');
     // 驗證碼確認
     Route::put('codecheck/{user_id}', 'AuthController@confirmValidateCode');
      // 需要使用token的相關功能

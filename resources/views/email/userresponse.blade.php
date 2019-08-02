@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>test mail</h1>
-    {{$yo}}
+{{$yo}}
+{{$gg}}
+
 
 </body>
 </html>

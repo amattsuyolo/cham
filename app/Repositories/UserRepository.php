@@ -68,6 +68,16 @@ class UserRepository {
 			->update(['mobilePhone' => $phone_number]);
 	}
 	/*
+		        更新使用者email
+		     *  @param user_id
+		     *  @param [str] phone_number
+		     *  @return void
+	*/
+	public function emailUpdate($user_id, $email) {
+		User::where('id', $user_id)
+			->update(['email' => $email]);
+	}
+	/*
 		        新增會員資料
 		     *  @param name
 		     *  @param email
