@@ -14,18 +14,49 @@ line id......
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">＊客服郵箱</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+      <form class="contact-form"  id="contactUsForm" action="/contact" method="get" onsubmit="closeModal()">
+			        {{ csrf_field()}}
+					<div class="form-group row">
+						<label   for="colFormLabel" class="col-sm-2 col-form-label"><span class="label-first">邮</span>箱</label>
+						<div class="col-sm-10">
+						<input  name="emailContact" type="email" class="form-control" id="colFormLabel" placeholder="">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="colFormLabel" class="col-sm-2 col-form-label"> <span class="label-first">姓</span>名</label>
+						<div class="col-sm-10">
+						<input name="nameContact"  class="form-control" id="colFormLabel" placeholder="">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="colFormLabel" class="col-sm-2 col-form-label"><span class="label-first">内</span>容</label>
+						<div class="col-sm-10">
+						<!-- <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label"> -->
+						<textarea name="messageContact" class="form-control" rows="4"></textarea>
+						</div>
+					</div>
+					<div class="form-foot"  style="margin:50px 14px 0px 37px" > 
+						<div class=" row justify-content-between"  >
+
+							<button  type="submit"  class="form-btn btn btn-success" >確認</button>
+
+							<button type="button"   class="form-btn btn btn-secondary" data-dismiss="modal">取消</button>
+
+						</div>
+					</div>
+
+				</form>
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer justify-content-around">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

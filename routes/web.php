@@ -16,3 +16,7 @@ Route::get('/', function () {
     return view('coffeeshop.coffeeshop');
 });
 Route::get('/hello/{yo}', '\App\Http\Controllers\Cool\TestController@smsTest');
+
+Route::get("mail","MailController@send");
+
+Route::get("contact","CoffeeShopController@customerResponse");

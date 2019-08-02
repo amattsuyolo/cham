@@ -1,4 +1,5 @@
-  <!--响应式框架-->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+	<!--响应式框架-->
   <link rel="stylesheet" type="text/css" href="coffee_web/css/bootstrap-grid.min.css" />
 
 <!--图标调用-->
