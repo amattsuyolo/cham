@@ -32,13 +32,13 @@ include '../publice/include/_sidebar.php';
                 <h3>連結說明</h3>
                 <h4>連結ＵＲＬ</h4>
                <!--  <h5><a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/mylive/interface.php" target="_blank">http://<?php echo $_SERVER['HTTP_HOST']; ?>/mylive/interface.php</a></h5> -->
-               <h5>149.129.64.206/api/auth/logout</h5>
+               <h5>127.0.0.1:8000/api/auth/logout</h5>
                 <br>
                 <h4>HTTP請求包格式</h4>
                 <h5>GET</h5>
                 <br>
                 <h4>HTTP請求包格式</h4>
-                <h5>JSON</h5>
+                <h5>header</h5>
                 <br>
                 <h4>請求包範例</h4>
                 <h5><pre>
@@ -100,10 +100,10 @@ value:Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjVjNGU3ZTVkMDgxNjhiNT
                 </div>
             
              
-                <h4>最後更新日:2019/07/31</h4>
+                <h4>最後更新日:2019/08/04</h4>
                 <br>
                 <h3>更新紀錄：</h3>
-                <h4>1. 2019/07/31 : 建立文件。</h4>
+                <h4>1. 2019/08/04 : 建立文件。</h4>
             </div>
         </div>
     </div>

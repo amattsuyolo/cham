@@ -73,29 +73,17 @@ value:Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjVjNGU3ZTVkMDgxNjhiNT
     "status": 200,
     "message": "",
     "data": {
-        "id": 3000026,
-        "name": "333333",
-        "email": "444444@gmail.com",
+        "id": 6,
+        "name": "jack",
+        "email": "mattsuyolo@gmail.com",
+        "email_verified_at": null,
+        "created_at": "2019-08-04 10:23:09",
+        "updated_at": "2019-08-04 10:32:27",
+        "avatar": null,
+        "verify": 6574,
         "activate": 1,
-        "birthday": "18-25",
-        "is_vip": "2028-09-20 00:00:00",
-        "ruby_coin": 500,
-        "country": "台灣",
-        "province": "台灣",
-        "city": "基隆",
-        "recommend": "6B1k7TqWYAOJ",
-        "mobilePhone": "097777189",
-        "loginCount": 1,
-        "loginDate": "2019-06-04 14:49:22",
-        "checkPunchIn": 0,
-        "gender": 1,
-        "verify": "eai3",
-        "facebook_login": "",
-        "google_login": "",
-        "created_at": "2019-04-22 17:51:18",
-        "update_at": "2019-07-30 13:35:36",
-        "avatar": "avatar.png",
-        "avatar_url": "http://localhost/storage/avatars/3000026/avatar.png"
+        "mobilePhone": "886908189360",
+        "avatar_url": "http://localhost/storage/avatars/6/"
     }
 }</pre></h5>
 <div class="table-responsive">
@@ -126,8 +114,8 @@ value:Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjVjNGU3ZTVkMDgxNjhiNT
                         </tbody>
                     </table>
 </div>
-                <h5>其中data裡的主要是會員表中的欄位資訊<span style="color:orange;font-weight:bold;" >請自行參考資料表更改下列欄位</span></h5>
-                <div class="table-responsive">
+                <h5>其中data裡的主要是會員表中的欄位資訊<span style="color:orange;font-weight:bold;" >參考資料表更改下列欄位</span></h5>
+                <!-- <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -207,13 +195,13 @@ value:Bearer  eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjVjNGU3ZTVkMDgxNjhiNT
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div> -->
              
 
-                <h4>最後更新日:2019/07/31</h4>
+                <h4>最後更新日:2019/08/04</h4>
                 <br>
                 <h3>更新紀錄：</h3>
-                <h4>1. 2019/07/31 : 建立文件(未完成)。</h4>
+                <h4>1. 2019/08/04 : 建立文件(未完成)。</h4>
             </div>
         </div>
     </div>

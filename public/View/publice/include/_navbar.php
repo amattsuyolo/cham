@@ -7,18 +7,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href=#>愛奇擼api文件</a>
+            <a class="navbar-brand" href=#>cham api文件</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse" style="background-color:  #20B2AA">
             <ul class="nav navbar-nav navbar-left nav-g1">
                  <li><a href="../../View/v_member/member_signup.php"><i class="fa fa-users" aria-hidden="true"> 會員系統</i></a></li>
-                <li><a href="../../View/v_video/classificationvideos.php"><i class="fa fa-shopping-cart" aria-hidden="true">影片資訊</i></a></li>
+                <!-- <li><a href="../../View/v_video/classificationvideos.php"><i class="fa fa-shopping-cart" aria-hidden="true">影片資訊</i></a></li>
                 <li><a href="../../View/v_room/living_room.php"><i class="fa fa-institution" aria-hidden="true"> 房間資訊</i></a></li>
                 <li><a href="../../View/v_pet/pet_adopt.php"><i class="fa fa-github-alt" aria-hidden="true"> 寵物資訊</i></a></li>
-                <li><a href="../../View/v_im/im_info.php"><i class="fa fa-bullhorn" aria-hidden="true"> 任務資訊</i></a></li>
+                <li><a href="../../View/v_im/im_info.php"><i class="fa fa-bullhorn" aria-hidden="true"> 任務資訊</i></a></li> -->
           <!--      <li><a href="../../View/v_im/im_info.php"><i class="fa-rebel" aria-hidden="true"> im回傳</i></a></li> -->
-                <li><a href="../../View/v_platform/platform_mail.php"><i class="fa fa-info" aria-hidden="true"> 平台資訊</i></a></li>
-                <li><a href="../../View/v_moneybox/moneybox.php"><i class="fa fa-cny" aria-hidden="true"> 撲滿系統</i></a></li>
+                <!-- <li><a href="../../View/v_platform/platform_mail.php"><i class="fa fa-info" aria-hidden="true"> 平台資訊</i></a></li>
+                <li><a href="../../View/v_moneybox/moneybox.php"><i class="fa fa-cny" aria-hidden="true"> 撲滿系統</i></a></li> -->
           <!--       <li><a href="../../View/v_tubegame/slot_create.php"><i class="fa fa-gamepad" aria-hidden="true"> 遊戲系統</i></a></li> -->
                <!--  <li><a href="../../View/v_shortvideo/shortvideo_search.php"><i class="fa fa-video-camera" aria-hidden="true"> 短視頻相關</i></a></li> -->
                <!--  <li><a href="../../View/v_dynamic/dynamic_like_message.php"><i class="fa fa-" aria-hidden="true"> 動態牆</i></a></li> -->

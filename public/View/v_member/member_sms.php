@@ -31,7 +31,7 @@ include '../publice/include/_sidebar.php';
                 <br>
                 <h3>連結說明</h3>
                 <h4>連結ＵＲＬ</h4>
-                <h5>149.129.64.206/api/auth/sms</h5>
+                <h5>http://127.0.0.1:8000/api/auth/sms</h5>
                 <br>
                 <h4>HTTP請求包格式</h4>
                 <h5>POST</h5>
@@ -41,9 +41,9 @@ include '../publice/include/_sidebar.php';
                 <br>
                 <h4>請求包範例</h4>
                 <h5><pre>
- {
-	"user_id":  3008079,
-	"phone_number":886976593928
+{
+	"phone_number":886908189360,
+	"user_id" : 6
 }</pre></h5>
                 <div class="table-responsive">
                     <table class="table table-striped">
@@ -102,10 +102,10 @@ include '../publice/include/_sidebar.php';
                     </table>
                 </div>
      
-                <h4>最後更新日:2019/07/31</h4>
+                <h4>最後更新日:2019/08/04</h4>
                 <br>
                 <h3>更新紀錄：</h3>
-                <h4>1. 2019/07/31 : 建立文件。</h4>
+                <h4>1. 2019/08/04 : 建立文件。</h4>
             </div>
         </div>
     </div>

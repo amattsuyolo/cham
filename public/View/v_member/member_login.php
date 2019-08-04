@@ -41,8 +41,8 @@ include '../publice/include/_sidebar.php';
                 <br>
                 <h4>請求包範例</h4>
                 <h5><pre>{
-	"name":"333333",
-	"password":"444444",
+    "email":"mattsuyolo@gmail.com",
+	"password":"123456",
 	"remember_me":true
 }</pre></h5>
                 <div class="table-responsive">
@@ -57,10 +57,10 @@ include '../publice/include/_sidebar.php';
                         </thead>
                         <tbody>
                             <tr>
-                                <td>name</td>
+                                <td>email</td>
                                 <td>string</td>
                                 <td>必填</td>
-                                <td>會員名稱</td>
+                                <td>會員信箱(可換成會員名稱)</td>
                             </tr>
                             <tr>
                                 <td>password</td>
@@ -84,9 +84,9 @@ include '../publice/include/_sidebar.php';
     "status": "200",
     "message": "login success",
     "data": {
-        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjE2N2I0N2EzNTcwYzIyYzkzNGI3YTBjMmUxZmM3MmRkZTcwOGFiYjI2ZWU5MTEwMWZjYmYwZjhiZWM4M2MxOGI0NmE1YjgwZjM1YzYyYzViIn0.eyJhdWQiOiIxIiwianRpIjoiMTY3YjQ3YTM1NzBjMjJjOTM0YjdhMGMyZTFmYzcyZGRlNzA4YWJiMjZlZTkxMTAxZmNiZjBmOGJlYzgzYzE4YjQ2YTViODBmMzVjNjJjNWIiLCJpYXQiOjE1NjQ0NjUyNDYsIm5iZiI6MTU2NDQ2NTI0NiwiZXhwIjoxNTk2MDg3NjQ2LCJzdWIiOiIzMDAwMDI2Iiwic2NvcGVzIjpbXX0.QQTcvW5jWnwBhHRrzXpiq9ZQM_x6DF0EBYk10X9cePErSigE2nmoz1tzZL8ixFE6koTDvsFzMnI2P6p33bEfVx73OQx2pJk3y2gs6y0BWMyJwT4kJjd7Us8LvYjaLo4yUopwneBejKZ8fLPlJjmqxIXKBpHjB3hmn-c5E4BoZ-wR255ujdtEoVkr_5OaHF6AZqzb25nHGWGGaDlRo8zbdW6wNFrbiVQNCzEgMLAyxewvbnT3qBodMloJYHv0dMLmipY10VPEukdXNiK1SC6ltOJb56gAvIxWWMkHA-MWi9cL7uYNL29zwrBIyl55x3m_ipAHXE6L3hrrcJWLkIV7pEMi3Lb3UwbsU6o4Z97r9LJgAJEvjhvY-HRALOrBTYGeAAoqtzRJXCAQhvxX6f6Ne65pxhG6ghGo-hcQLUqyVftagI8G7Tidv0vjXO2hoH5pMZcHiKL2sBRd5JY_8sGlRuT-Dao75bJEvid9x6pUP_WSkJuoEmgdo7s33x7WKSB7EdDXqb2O7V3QjNK9XggR-40brFWiga925Jn0kzklyMkJS8c0X3ZQwIr8Av7d-VjqoneraQSppiSYkyFabwduNjvOKSMT9AnW58MSwx0dxlI60pA4Oc4HYmld-H7RJ4Cbb-RbLW137b4JTh2LWLP4I4r3Wro0uA3xeoNRfE3mRO4",
+        "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImM2N2UzNzI4ODdkY2Y5NTAxZTQ1NWU0NmJmZDA3ZTI2OWU4MDY4ZjY5Y2I3YWZhZjE0MzY5ZjE3NjhhNmU5NWY0OTY3OTUxZTQ3ZWIwYTY1In0.eyJhdWQiOiIxIiwianRpIjoiYzY3ZTM3Mjg4N2RjZjk1MDFlNDU1ZTQ2YmZkMDdlMjY5ZTgwNjhmNjljYjdhZmFmMTQzNjlmMTc2OGE2ZTk1ZjQ5Njc5NTFlNDdlYjBhNjUiLCJpYXQiOjE1NjQ4ODYwNDcsIm5iZiI6MTU2NDg4NjA0NywiZXhwIjoxNTk2NTA4NDQ3LCJzdWIiOiI2Iiwic2NvcGVzIjpbXX0.oKzt4lbb-AP1T_c44tR65lSWl3gZh4u7TIOyCUaNggHykHV9mHjAPXUXwik1ERRTvbuGbKETQ8UjOljRirBtR175TnNKO28jCa6gyfNb0aNrbenC5d86aPf0AdmEVvQnNDTlXETJlyycNh7GhCNoU8Z59UPHDhsf5b6V8Gm4tWbpXyX120Ms1mWIDIkk872FYmwcVTrOgpuw3xeUQuxQz69x2hD34lu4br-VdCjN3jjgw71tVuAkuDhGjG0KwUMdAiaSlsctnGgZptAMrQTYVYCRVfYqJk-1GsybBMjPKe1ReVCvR8D2hpyagfahi6e495qOlc6B-z0U2FUKRAtYVWxSY6ZOrzVxyzY0fcZIzOD_vwamJ-_uV6enVM7i85ikKO2DPU3fdjsQXmqFqW35Trx-XXsxTG3wuSzMdO8QDfZVCE6PRDzVqk57qLCo1JKCHyccpps-9-rLi4sOTFwU5pz0FaykIkcoxywmJiQPuYKSW4zr7aX_L2QTH0RN-n1uAB_-ZySZoU5IXsmqTI5sjmIVn2KXLJUdAz-kNpUlQw2KNrqfYjkr-3Bea9eEHMXDdxJY5nNiOzdxL-hONNMLRdV8_yzXMEfcJPvXbprkbKigi0uDWh09R1Sojq1_ntr-UVmLJDH1TSZsjWN08wd_YapPRk5KgzVDOoaQl_xNGr4",
         "token_type": "Bearer",
-        "expires_at": "2019-08-06 13:40:46"
+        "expires_at": "2019-08-11 10:34:07"
     }
 }</pre></h5>
 <div class="table-responsive">
@@ -147,10 +147,10 @@ include '../publice/include/_sidebar.php';
                         </tbody>
                     </table>
                 </div>
-                <h4>最後更新日:2019/07/31</h4>
+                <h4>最後更新日:2019/08/04</h4>
                 <br>
                 <h3>更新紀錄：</h3>
-                <h4>1. 2019/07/31 : 建立文件。</h4>
+                <h4>1. 2019/08/04 : 建立文件。</h4>
             </div>
         </div>
     </div>

@@ -11,6 +11,7 @@ $sidebar_list = array(
 		'會員註冊' => array('../../View/v_member/member_signup', 'fa fa-plug'),
 		'會員登入' => array('../../View/v_member/member_login', 'fa fa-rocket'),
 		'簡訊' => array('../../View/v_member/member_sms', 'fa fa-mobile'),
+		'email' => array('../../View/v_member/member_email', 'fa fa-envelope'),
 		'驗證碼確認' => array('../../View/v_member/member_codecheck', 'fa fa-plug'),
 		'登出' => array('../../View/v_member/member_logout', 'fa fa-rocket'),
 		'會員資訊' => array('../../View/v_member/member_info', 'fa fa-mobile'),
