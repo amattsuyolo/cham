@@ -4,9 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-
     "content-hash": "7eb0b203886ed7c812df8b4fb2ec99a6",
-
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -1696,8 +1694,6 @@
             "time": "2019-05-13T20:27:43+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "nexmo/laravel",
             "version": "1.1.2",
             "source": {
@@ -1758,7 +1754,6 @@
             "time": "2019-05-16T23:11:20+00:00"
         },
         {
->>>>>>> test
             "name": "nikic/php-parser",
             "version": "v4.2.2",
             "source": {
