@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-{{$yo}}
-{{$gg}}
+<h1>dsdsnjjkfsf</h1>
 
 
 </body>

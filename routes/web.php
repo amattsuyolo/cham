@@ -17,6 +17,6 @@ Route::get('/', function () {
 });
 Route::get('/hello/{yo}', '\App\Http\Controllers\Cool\TestController@smsTest');
 // 寄信 測試
-Route::get("mail","MailController@send");
+Route::get("mail","MailController");
 // 咖啡一頁式網站聯絡信
 Route::get("contact","CoffeeShopController@customerResponse");

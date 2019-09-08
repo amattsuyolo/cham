@@ -4,7 +4,8 @@ namespace App\Repositories;
 
 use App\Http\Resources\User as UserResource;
 use App\User;
-
+use App\Entity\Users;
+use Cache;
 class UserRepository {
 
 	private $user;
@@ -103,6 +104,15 @@ class UserRepository {
 	public function userInfo($request) {
 		// return  $this->userResource($request);
 		return new userResource($request);
+	}
+	public function UserCache(){
+		if(Cache::has("user1")){
+			return Cache::get("user1");
+		}else{
+			$content=Users::find(1);
+			Cache::forever("user1",$content);
+			return $content;
+		}
 	}
 
 }

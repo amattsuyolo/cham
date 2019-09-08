@@ -22,6 +22,8 @@ Route::get('video/{tagid}/{page?}', 'VideoController@ClassificationVideos');
 
 Route::post('apitry', 'api\PostController@index');
 
+Route::get('usercache', 'AuthController@userCache');
+
 Route::group([
     'prefix' => 'auth'
 ], function () {
@@ -41,5 +43,6 @@ Route::group([
     ], function() {
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
+       
     });
 });

@@ -5,8 +5,8 @@ use Mail;
 
 class MailController extends Controller
 {
- public function send(){
-     Mail::send("email.test",[],function($message){
+ public function __invoke(){
+     Mail::send("email.userresponse",[],function($message){
          $message->subject("laravel mail");
          $message->to("mattsuyolo@gmail.com");
      });

@@ -138,6 +138,20 @@ class AuthController extends Controller {
 		);
 		// return response()->json($request->user());
 	}
+	/**
+	 * 測試cache
+	 * 
+	 */
+	public function userCache(){
+		$content = $this->userRepository->UserCache();
+		return response()->json(
+			[
+				"status" => 200,
+				"message" => "",
+				"data" => $content,
+			], 200
+		);
+	}
 	/*
 	*  寄驗證信SMS
 	*  若成功寄出 更新user表驗證碼欄位
